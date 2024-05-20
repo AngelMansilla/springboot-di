@@ -8,17 +8,19 @@ import com.angel.springboot.di.app.springbootdi.repositories.ProductRepository;
 
 public class ProductService {
 
+    private ProductRepository repository = new ProductRepository();
 
-    private ProductRepository repository = new  ProductRepository();
-    public List<Product> findAll(){
+    public List<Product> findAll() {
         return repository.findAll().stream().map(p -> {
-            Double priceImp = p.getPrice() * 1.25d;
-            Product newProd = new Product(p.getId(), p.getName(), priceImp.longValue());
+            Double priceTax = p.getPrice() * 1.25d;
+            // Product newProd = new Product(p.getId(), p.getName(), priceImp.longValue());
+            Product newProd = (Product) p.clone();
+            newProd.setPrice(priceTax.longValue());
             return newProd;
         }).collect(Collectors.toList());
     }
 
-    public Product findById(Long id){
+    public Product findById(Long id) {
         return repository.findById(id);
     }
 }
