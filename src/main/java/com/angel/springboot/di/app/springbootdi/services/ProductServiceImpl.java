@@ -3,17 +3,19 @@ package com.angel.springboot.di.app.springbootdi.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.angel.springboot.di.app.springbootdi.models.Product;
-import com.angel.springboot.di.app.springbootdi.repositories.ProductRepositoryImpl;
+import com.angel.springboot.di.app.springbootdi.repositories.ProductRepository;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductRepositoryImpl repository;
+    private ProductRepository repository;
+
+    public ProductServiceImpl(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Product> findAll() {
