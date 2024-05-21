@@ -5,6 +5,9 @@ public class Product implements Cloneable {
     private String name;
     private Long price;
 
+
+    public Product() {}
+    
     // Constructor
     public Product(Long id, String name, Long price) {
         this.id = id;
