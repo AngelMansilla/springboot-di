@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Abrigo muy largo",
+        "price": 370
+    },
+    {
+        "id": 2,
+        "name": "Horno Pizza Rojo",
+        "price": 162
+    },
+    {
+        "id": 3,
+        "name": "Chaqueta de pluma negra",
+        "price": 62
+    },
+    {
+        "id": 4,
+        "name": "Macbook 15",
+        "price": 1500
+    }
+]
